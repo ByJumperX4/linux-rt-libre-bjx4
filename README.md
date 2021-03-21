@@ -4,7 +4,7 @@ de-blobbed linux kernel with the CONFIG_PREEMPT_RT patch, gentoo's sys-kernel/rt
 
 Current kernel branch: 4.19 (as of 20 March 2021)
 
-Installation instructions (in case you don't know how to compile a linux kernel, but it's the normal process if you already know)
+`Installation instructions (in case you don't know how to compile a linux kernel, but it's the normal process if you already know):`
 
 First, you want to clone the repo and go into the sources directory
 ```
