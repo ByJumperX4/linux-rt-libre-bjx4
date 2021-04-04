@@ -22,7 +22,7 @@ struct snd_soc_acpi_mach snd_soc_acpi_intel_haswell_machines[] = {
 	{
 		.id = "INT33CA",
 		.drv_name = "haswell-audio",
-		.fw_filename = "/*(DEBLOBBED)*/",
+		.fw_filename = "intel/IntcSST1.bin",
 		.sof_fw_filename = "intel/sof-hsw.ri",
 		.sof_tplg_filename = "intel/sof-hsw.tplg",
 		.asoc_plat_name = "haswell-pcm-audio",
@@ -35,7 +35,7 @@ struct snd_soc_acpi_mach snd_soc_acpi_intel_broadwell_machines[] = {
 	{
 		.id = "INT343A",
 		.drv_name = "broadwell-audio",
-		.fw_filename =  "/*(DEBLOBBED)*/",
+		.fw_filename =  "intel/IntcSST2.bin",
 		.sof_fw_filename = "intel/sof-bdw.ri",
 		.sof_tplg_filename = "intel/sof-bdw-rt286.tplg",
 		.asoc_plat_name = "haswell-pcm-audio",
@@ -43,7 +43,7 @@ struct snd_soc_acpi_mach snd_soc_acpi_intel_broadwell_machines[] = {
 	{
 		.id = "RT5677CE",
 		.drv_name = "bdw-rt5677",
-		.fw_filename =  "/*(DEBLOBBED)*/",
+		.fw_filename =  "intel/IntcSST2.bin",
 		.sof_fw_filename = "intel/sof-bdw.ri",
 		.sof_tplg_filename = "intel/sof-bdw-rt5677.tplg",
 		.asoc_plat_name = "haswell-pcm-audio",
@@ -51,7 +51,7 @@ struct snd_soc_acpi_mach snd_soc_acpi_intel_broadwell_machines[] = {
 	{
 		.id = "INT33CA",
 		.drv_name = "haswell-audio",
-		.fw_filename = "/*(DEBLOBBED)*/",
+		.fw_filename = "intel/IntcSST2.bin",
 		.sof_fw_filename = "intel/sof-bdw.ri",
 		.sof_tplg_filename = "intel/sof-bdw-rt5640.tplg",
 		.asoc_plat_name = "haswell-pcm-audio",

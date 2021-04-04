@@ -99,9 +99,9 @@ struct brcmf_feat_fwfeat {
 };
 
 static const struct brcmf_feat_fwfeat brcmf_feat_fwfeat_map[] = {
-	/*(DEBLOBBED)*/
+	/* brcmfmac43602-pcie.ap.bin from linux-firmware.git commit ea1178515b88 */
 	{ "01-6cb8e269", BIT(BRCMF_FEAT_MONITOR) },
-	/*(DEBLOBBED)*/
+	/* brcmfmac4366b-pcie.bin from linux-firmware.git commit 52442afee990 */
 	{ "01-c47a91a4", BIT(BRCMF_FEAT_MONITOR) },
 };
 

@@ -128,7 +128,7 @@ mt76pci_load_rom_patch(struct mt76x2_dev *dev)
 		goto out;
 	}
 
-	ret = reject_firmware(&fw, MT7662_ROM_PATCH, dev->mt76.dev);
+	ret = request_firmware(&fw, MT7662_ROM_PATCH, dev->mt76.dev);
 	if (ret)
 		goto out;
 
@@ -174,7 +174,7 @@ mt76pci_load_firmware(struct mt76x2_dev *dev)
 	__le32 *cur;
 	u32 offset, val;
 
-	ret = reject_firmware(&fw, MT7662_FIRMWARE, dev->mt76.dev);
+	ret = request_firmware(&fw, MT7662_FIRMWARE, dev->mt76.dev);
 	if (ret)
 		return ret;
 

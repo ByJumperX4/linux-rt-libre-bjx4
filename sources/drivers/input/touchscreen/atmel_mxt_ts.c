@@ -37,7 +37,7 @@
 #include <media/videobuf2-vmalloc.h>
 
 /* Firmware files */
-#define MXT_FW_NAME		"/*(DEBLOBBED)*/"
+#define MXT_FW_NAME		"maxtouch.fw"
 #define MXT_CFG_NAME		"maxtouch.cfg"
 #define MXT_CFG_MAGIC		"OBP_RAW V1"
 
@@ -2157,7 +2157,7 @@ static int mxt_initialize(struct mxt_data *data)
 	if (error)
 		return error;
 
-	error = reject_firmware_nowait(THIS_MODULE, true, MXT_CFG_NAME,
+	error = request_firmware_nowait(THIS_MODULE, true, MXT_CFG_NAME,
 					&client->dev, GFP_KERNEL, data,
 					mxt_config_cb);
 	if (error) {
@@ -2765,7 +2765,8 @@ static int mxt_check_firmware_format(struct device *dev,
 
 	/*
 	 * To convert file try:
-	/*(DEBLOBBED)*/
+	 * xxd -r -p mXTXXX__APP_VX-X-XX.enc > maxtouch.fw
+	 */
 	dev_err(dev, "Aborting: firmware file must be in binary format\n");
 
 	return -EINVAL;
@@ -2781,7 +2782,7 @@ static int mxt_load_fw(struct device *dev, const char *fn)
 	unsigned int frame = 0;
 	int ret;
 
-	ret = reject_firmware(&fw, fn, dev);
+	ret = request_firmware(&fw, fn, dev);
 	if (ret) {
 		dev_err(dev, "Unable to open firmware %s\n", fn);
 		return ret;

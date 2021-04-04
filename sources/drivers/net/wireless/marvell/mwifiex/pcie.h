@@ -29,12 +29,12 @@
 #include    "decl.h"
 #include    "main.h"
 
-#define PCIE8766_DEFAULT_FW_NAME "/*(DEBLOBBED)*/"
-#define PCIE8897_DEFAULT_FW_NAME "/*(DEBLOBBED)*/"
-#define PCIE8897_A0_FW_NAME "/*(DEBLOBBED)*/"
-#define PCIE8897_B0_FW_NAME "/*(DEBLOBBED)*/"
-#define PCIEUART8997_FW_NAME_V4 "/*(DEBLOBBED)*/"
-#define PCIEUSB8997_FW_NAME_V4 "/*(DEBLOBBED)*/"
+#define PCIE8766_DEFAULT_FW_NAME "mrvl/pcie8766_uapsta.bin"
+#define PCIE8897_DEFAULT_FW_NAME "mrvl/pcie8897_uapsta.bin"
+#define PCIE8897_A0_FW_NAME "mrvl/pcie8897_uapsta_a0.bin"
+#define PCIE8897_B0_FW_NAME "mrvl/pcie8897_uapsta.bin"
+#define PCIEUART8997_FW_NAME_V4 "mrvl/pcieuart8997_combo_v4.bin"
+#define PCIEUSB8997_FW_NAME_V4 "mrvl/pcieusb8997_combo_v4.bin"
 
 #define PCIE_VENDOR_ID_MARVELL              (0x11ab)
 #define PCIE_VENDOR_ID_V2_MARVELL           (0x1b4b)
@@ -391,6 +391,8 @@ struct pcie_service_card {
 	struct mwifiex_msix_context share_irq_ctx;
 	struct work_struct work;
 	unsigned long work_flags;
+
+	bool pci_reset_ongoing;
 };
 
 static inline int

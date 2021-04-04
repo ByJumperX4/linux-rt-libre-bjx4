@@ -64,7 +64,7 @@ int venus_boot(struct device *dev, const char *fwname)
 		return -ENOMEM;
 	}
 
-	ret = reject_firmware(&mdt, fwname, dev);
+	ret = request_firmware(&mdt, fwname, dev);
 	if (ret < 0)
 		goto err_unmap;
 

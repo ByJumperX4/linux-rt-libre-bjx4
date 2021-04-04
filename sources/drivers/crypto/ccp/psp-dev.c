@@ -32,7 +32,7 @@
 		 (psp_master->api_minor) >= _min)
 
 #define DEVICE_NAME	"sev"
-#define SEV_FW_FILE	"/*(DEBLOBBED)*/"
+#define SEV_FW_FILE	"amd/sev.fw"
 
 static DEFINE_MUTEX(sev_cmd_mutex);
 static struct sev_misc_dev *misc_dev;
@@ -449,7 +449,7 @@ static int sev_update_firmware(struct device *dev)
 	struct page *p;
 	u64 data_size;
 
-	ret = reject_firmware(&firmware, SEV_FW_FILE, dev);
+	ret = request_firmware(&firmware, SEV_FW_FILE, dev);
 	if (ret < 0)
 		return -1;
 

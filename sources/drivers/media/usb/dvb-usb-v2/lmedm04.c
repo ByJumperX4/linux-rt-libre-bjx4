@@ -80,12 +80,12 @@
 #include "ts2020.h"
 
 
-#define LME2510_C_S7395	"/*(DEBLOBBED)*/";
-#define LME2510_C_LG	"/*(DEBLOBBED)*/";
-#define LME2510_C_S0194	"/*(DEBLOBBED)*/";
-#define LME2510_C_RS2000 "/*(DEBLOBBED)*/";
-#define LME2510_LG	"/*(DEBLOBBED)*/";
-#define LME2510_S0194	"/*(DEBLOBBED)*/";
+#define LME2510_C_S7395	"dvb-usb-lme2510c-s7395.fw";
+#define LME2510_C_LG	"dvb-usb-lme2510c-lg.fw";
+#define LME2510_C_S0194	"dvb-usb-lme2510c-s0194.fw";
+#define LME2510_C_RS2000 "dvb-usb-lme2510c-rs2000.fw";
+#define LME2510_LG	"dvb-usb-lme2510-lg.fw";
+#define LME2510_S0194	"dvb-usb-lme2510-s0194.fw";
 
 /* debug */
 static int dvb_usb_lme2510_debug;
@@ -436,7 +436,7 @@ static int lme2510_int_read(struct dvb_usb_adapter *adap)
 	ep = usb_pipe_endpoint(d->udev, lme_int->lme_urb->pipe);
 
 	if (usb_endpoint_type(&ep->desc) == USB_ENDPOINT_XFER_BULK)
-		lme_int->lme_urb->pipe = usb_rcvbulkpipe(d->udev, 0xa),
+		lme_int->lme_urb->pipe = usb_rcvbulkpipe(d->udev, 0xa);
 
 	lme_int->lme_urb->transfer_flags |= URB_NO_TRANSFER_DMA_MAP;
 
@@ -731,7 +731,7 @@ static const char *lme_firmware_switch(struct dvb_usb_device *d, int cold)
 		default:
 		case TUNER_S0194:
 			fw_lme = fw_s0194;
-			ret = reject_firmware(&fw, fw_lme, &udev->dev);
+			ret = request_firmware(&fw, fw_lme, &udev->dev);
 			if (ret == 0) {
 				st->dvb_usb_lme2510_firmware = TUNER_S0194;
 				cold = 0;
@@ -740,7 +740,7 @@ static const char *lme_firmware_switch(struct dvb_usb_device *d, int cold)
 			/* fall through */
 		case TUNER_LG:
 			fw_lme = fw_lg;
-			ret = reject_firmware(&fw, fw_lme, &udev->dev);
+			ret = request_firmware(&fw, fw_lme, &udev->dev);
 			if (ret == 0) {
 				st->dvb_usb_lme2510_firmware = TUNER_LG;
 				break;
@@ -754,7 +754,7 @@ static const char *lme_firmware_switch(struct dvb_usb_device *d, int cold)
 		default:
 		case TUNER_S7395:
 			fw_lme = fw_c_s7395;
-			ret = reject_firmware(&fw, fw_lme, &udev->dev);
+			ret = request_firmware(&fw, fw_lme, &udev->dev);
 			if (ret == 0) {
 				st->dvb_usb_lme2510_firmware = TUNER_S7395;
 				cold = 0;
@@ -763,7 +763,7 @@ static const char *lme_firmware_switch(struct dvb_usb_device *d, int cold)
 			/* fall through */
 		case TUNER_LG:
 			fw_lme = fw_c_lg;
-			ret = reject_firmware(&fw, fw_lme, &udev->dev);
+			ret = request_firmware(&fw, fw_lme, &udev->dev);
 			if (ret == 0) {
 				st->dvb_usb_lme2510_firmware = TUNER_LG;
 				break;
@@ -771,7 +771,7 @@ static const char *lme_firmware_switch(struct dvb_usb_device *d, int cold)
 			/* fall through */
 		case TUNER_S0194:
 			fw_lme = fw_c_s0194;
-			ret = reject_firmware(&fw, fw_lme, &udev->dev);
+			ret = request_firmware(&fw, fw_lme, &udev->dev);
 			if (ret == 0) {
 				st->dvb_usb_lme2510_firmware = TUNER_S0194;
 				break;
@@ -1346,5 +1346,10 @@ MODULE_AUTHOR("Malcolm Priestley <tvboxspy@gmail.com>");
 MODULE_DESCRIPTION("LME2510(C) DVB-S USB2.0");
 MODULE_VERSION("2.07");
 MODULE_LICENSE("GPL");
-/*(DEBLOBBED)*/
+MODULE_FIRMWARE(LME2510_C_S7395);
+MODULE_FIRMWARE(LME2510_C_LG);
+MODULE_FIRMWARE(LME2510_C_S0194);
+MODULE_FIRMWARE(LME2510_C_RS2000);
+MODULE_FIRMWARE(LME2510_LG);
+MODULE_FIRMWARE(LME2510_S0194);
 

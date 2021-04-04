@@ -38,7 +38,7 @@
 #include <linux/platform_device.h>
 
 #define DRVNAME			"brcmstb-dpfe"
-#define FIRMWARE_NAME		"/*(DEBLOBBED)*/"
+#define FIRMWARE_NAME		"dpfe.bin"
 
 /* DCPU register offsets */
 #define REG_DCPU_RESET		0x0
@@ -486,8 +486,8 @@ static int brcmstb_dpfe_download_firmware(struct platform_device *pdev,
 			return 0;
 	}
 
-	ret = reject_firmware(&fw, FIRMWARE_NAME, dev);
-	/* reject_firmware() prints its own error messages. */
+	ret = request_firmware(&fw, FIRMWARE_NAME, dev);
+	/* request_firmware() prints its own error messages. */
 	if (ret)
 		return ret;
 

@@ -40,18 +40,18 @@ struct xway_gphy_match_data {
 };
 
 static const struct xway_gphy_match_data xrx200a1x_gphy_data = {
-	.fe_firmware_name = "/*(DEBLOBBED)*/",
-	.ge_firmware_name = "/*(DEBLOBBED)*/",
+	.fe_firmware_name = "lantiq/xrx200_phy22f_a14.bin",
+	.ge_firmware_name = "lantiq/xrx200_phy11g_a14.bin",
 };
 
 static const struct xway_gphy_match_data xrx200a2x_gphy_data = {
-	.fe_firmware_name = "/*(DEBLOBBED)*/",
-	.ge_firmware_name = "/*(DEBLOBBED)*/",
+	.fe_firmware_name = "lantiq/xrx200_phy22f_a22.bin",
+	.ge_firmware_name = "lantiq/xrx200_phy11g_a22.bin",
 };
 
 static const struct xway_gphy_match_data xrx300_gphy_data = {
-	.fe_firmware_name = "/*(DEBLOBBED)*/",
-	.ge_firmware_name = "/*(DEBLOBBED)*/",
+	.fe_firmware_name = "lantiq/xrx300_phy22f_a21.bin",
+	.ge_firmware_name = "lantiq/xrx300_phy11g_a21.bin",
 };
 
 static const struct of_device_id xway_gphy_match[] = {
@@ -72,7 +72,7 @@ static int xway_gphy_load(struct device *dev, struct xway_gphy_priv *priv,
 	size_t size;
 	int ret;
 
-	ret = reject_firmware(&fw, priv->fw_name, dev);
+	ret = request_firmware(&fw, priv->fw_name, dev);
 	if (ret) {
 		dev_err(dev, "failed to load firmware: %s, error: %i\n",
 			priv->fw_name, ret);
@@ -213,7 +213,12 @@ static struct platform_driver xway_gphy_driver = {
 
 module_platform_driver(xway_gphy_driver);
 
-/*(DEBLOBBED)*/
+MODULE_FIRMWARE("lantiq/xrx300_phy11g_a21.bin");
+MODULE_FIRMWARE("lantiq/xrx300_phy22f_a21.bin");
+MODULE_FIRMWARE("lantiq/xrx200_phy11g_a14.bin");
+MODULE_FIRMWARE("lantiq/xrx200_phy11g_a22.bin");
+MODULE_FIRMWARE("lantiq/xrx200_phy22f_a14.bin");
+MODULE_FIRMWARE("lantiq/xrx200_phy22f_a22.bin");
 MODULE_AUTHOR("Martin Blumenstingl <martin.blumenstingl@googlemail.com>");
 MODULE_DESCRIPTION("Lantiq XWAY GPHY Firmware Loader");
 MODULE_LICENSE("GPL");

@@ -57,7 +57,7 @@ static const struct dmi_system_id byt_table[] = {
 static struct snd_soc_acpi_mach byt_thinkpad_10 = {
 	.id = "10EC5640",
 	.drv_name = "cht-bsw-rt5672",
-	.fw_filename = "/*(DEBLOBBED)*/",
+	.fw_filename = "intel/fw_sst_0f28.bin",
 	.board = "cht-bsw",
 	.sof_fw_filename = "intel/sof-byt.ri",
 	.sof_tplg_filename = "intel/sof-byt-rt5670.tplg",
@@ -80,12 +80,12 @@ struct snd_soc_acpi_mach snd_soc_acpi_intel_baytrail_legacy_machines[] = {
 	{
 		.id = "10EC5640",
 		.drv_name = "byt-rt5640",
-		.fw_filename = "/*(DEBLOBBED)*/",
+		.fw_filename = "intel/fw_sst_0f28.bin-48kHz_i2s_master",
 	},
 	{
 		.id = "193C9890",
 		.drv_name = "byt-max98090",
-		.fw_filename = "/*(DEBLOBBED)*/",
+		.fw_filename = "intel/fw_sst_0f28.bin-48kHz_i2s_master",
 	},
 	{}
 };
@@ -95,7 +95,7 @@ struct snd_soc_acpi_mach  snd_soc_acpi_intel_baytrail_machines[] = {
 	{
 		.id = "10EC5640",
 		.drv_name = "bytcr_rt5640",
-		.fw_filename = "/*(DEBLOBBED)*/",
+		.fw_filename = "intel/fw_sst_0f28.bin",
 		.board = "bytcr_rt5640",
 		.machine_quirk = byt_quirk,
 		.sof_fw_filename = "intel/sof-byt.ri",
@@ -105,7 +105,7 @@ struct snd_soc_acpi_mach  snd_soc_acpi_intel_baytrail_machines[] = {
 	{
 		.id = "10EC5642",
 		.drv_name = "bytcr_rt5640",
-		.fw_filename = "/*(DEBLOBBED)*/",
+		.fw_filename = "intel/fw_sst_0f28.bin",
 		.board = "bytcr_rt5640",
 		.sof_fw_filename = "intel/sof-byt.ri",
 		.sof_tplg_filename = "intel/sof-byt-rt5640.tplg",
@@ -114,7 +114,7 @@ struct snd_soc_acpi_mach  snd_soc_acpi_intel_baytrail_machines[] = {
 	{
 		.id = "INTCCFFD",
 		.drv_name = "bytcr_rt5640",
-		.fw_filename = "/*(DEBLOBBED)*/",
+		.fw_filename = "intel/fw_sst_0f28.bin",
 		.board = "bytcr_rt5640",
 		.sof_fw_filename = "intel/sof-byt.ri",
 		.sof_tplg_filename = "intel/sof-byt-rt5640.tplg",
@@ -123,7 +123,7 @@ struct snd_soc_acpi_mach  snd_soc_acpi_intel_baytrail_machines[] = {
 	{
 		.id = "10EC5651",
 		.drv_name = "bytcr_rt5651",
-		.fw_filename = "/*(DEBLOBBED)*/",
+		.fw_filename = "intel/fw_sst_0f28.bin",
 		.board = "bytcr_rt5651",
 		.sof_fw_filename = "intel/sof-byt.ri",
 		.sof_tplg_filename = "intel/sof-byt-rt5651.tplg",
@@ -132,7 +132,7 @@ struct snd_soc_acpi_mach  snd_soc_acpi_intel_baytrail_machines[] = {
 	{
 		.id = "DLGS7212",
 		.drv_name = "bytcht_da7213",
-		.fw_filename = "/*(DEBLOBBED)*/",
+		.fw_filename = "intel/fw_sst_0f28.bin",
 		.board = "bytcht_da7213",
 		.sof_fw_filename = "intel/sof-byt.ri",
 		.sof_tplg_filename = "intel/sof-byt-da7213.tplg",
@@ -141,7 +141,7 @@ struct snd_soc_acpi_mach  snd_soc_acpi_intel_baytrail_machines[] = {
 	{
 		.id = "DLGS7213",
 		.drv_name = "bytcht_da7213",
-		.fw_filename = "/*(DEBLOBBED)*/",
+		.fw_filename = "intel/fw_sst_0f28.bin",
 		.board = "bytcht_da7213",
 		.sof_fw_filename = "intel/sof-byt.ri",
 		.sof_tplg_filename = "intel/sof-byt-da7213.tplg",
@@ -151,7 +151,7 @@ struct snd_soc_acpi_mach  snd_soc_acpi_intel_baytrail_machines[] = {
 	{
 		.id = "10EC5645",
 		.drv_name = "cht-bsw-rt5645",
-		.fw_filename = "/*(DEBLOBBED)*/",
+		.fw_filename = "intel/fw_sst_0f28.bin",
 		.board = "cht-bsw",
 		.sof_fw_filename = "intel/sof-byt.ri",
 		.sof_tplg_filename = "intel/sof-byt-rt5645.tplg",
@@ -160,7 +160,7 @@ struct snd_soc_acpi_mach  snd_soc_acpi_intel_baytrail_machines[] = {
 	{
 		.id = "10EC5648",
 		.drv_name = "cht-bsw-rt5645",
-		.fw_filename = "/*(DEBLOBBED)*/",
+		.fw_filename = "intel/fw_sst_0f28.bin",
 		.board = "cht-bsw",
 		.sof_fw_filename = "intel/sof-byt.ri",
 		.sof_tplg_filename = "intel/sof-byt-rt5645.tplg",
@@ -170,7 +170,7 @@ struct snd_soc_acpi_mach  snd_soc_acpi_intel_baytrail_machines[] = {
 	{
 		.id = "193C9890",
 		.drv_name = "cht-bsw-max98090",
-		.fw_filename = "/*(DEBLOBBED)*/",
+		.fw_filename = "intel/fw_sst_0f28.bin",
 		.board = "cht-bsw",
 		.sof_fw_filename = "intel/sof-byt.ri",
 		.sof_tplg_filename = "intel/sof-byt-max98090.tplg",
@@ -184,7 +184,7 @@ struct snd_soc_acpi_mach  snd_soc_acpi_intel_baytrail_machines[] = {
 	{
 		.id = "80860F28",
 		.drv_name = "bytcht_nocodec",
-		.fw_filename = "/*(DEBLOBBED)*/",
+		.fw_filename = "intel/fw_sst_0f28.bin",
 		.board = "bytcht_nocodec",
 	},
 #endif

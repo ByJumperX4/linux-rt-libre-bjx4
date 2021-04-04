@@ -538,7 +538,7 @@ static int mt76x0_load_firmware(struct mt76x0_dev *dev)
 	if (firmware_running(dev))
 		return 0;
 
-	ret = reject_firmware(&fw, MT7610_FIRMWARE, dev->mt76.dev);
+	ret = request_firmware(&fw, MT7610_FIRMWARE, dev->mt76.dev);
 	if (ret)
 		return ret;
 

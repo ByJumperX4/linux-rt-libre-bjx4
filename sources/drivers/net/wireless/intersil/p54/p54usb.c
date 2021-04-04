@@ -30,7 +30,8 @@ MODULE_AUTHOR("Michael Wu <flamingice@sourmilk.net>");
 MODULE_DESCRIPTION("Prism54 USB wireless driver");
 MODULE_LICENSE("GPL");
 MODULE_ALIAS("prism54usb");
-/*(DEBLOBBED)*/
+MODULE_FIRMWARE("isl3886usb");
+MODULE_FIRMWARE("isl3887usb");
 
 static struct usb_driver p54u_driver;
 
@@ -128,13 +129,13 @@ static const struct {
 	{
 		.type = P54U_NET2280,
 		.intf = FW_LM86,
-		.fw = "/*(DEBLOBBED)*/",
+		.fw = "isl3886usb",
 		.hw = "ISL3886 + net2280",
 	},
 	{
 		.type = P54U_3887,
 		.intf = FW_LM87,
-		.fw = "/*(DEBLOBBED)*/",
+		.fw = "isl3887usb",
 		.hw = "ISL3887",
 	},
 };
@@ -971,7 +972,7 @@ static int p54u_load_firmware(struct ieee80211_hw *dev,
 	       p54u_fwlist[i].fw);
 
 	usb_get_intf(intf);
-	err = reject_firmware_nowait(THIS_MODULE, 1, p54u_fwlist[i].fw,
+	err = request_firmware_nowait(THIS_MODULE, 1, p54u_fwlist[i].fw,
 				      device, GFP_KERNEL, priv,
 				      p54u_load_firmware_cb);
 	if (err) {

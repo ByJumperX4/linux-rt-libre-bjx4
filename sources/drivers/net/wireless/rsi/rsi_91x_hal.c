@@ -24,7 +24,7 @@
 /* FLASH Firmware */
 static struct ta_metadata metadata_flash_content[] = {
 	{"flash_content", 0x00010000},
-	{"/*(DEBLOBBED)*/", 0x00010000},
+	{"rsi/rs9113_wlan_qspi.rps", 0x00010000},
 	{"rsi/rs9113_wlan_bt_dual_mode.rps", 0x00010000},
 	{"flash_content", 0x00010000},
 	{"rsi/rs9113_ap_bt_dual_mode.rps", 0x00010000},
@@ -238,7 +238,8 @@ int rsi_prepare_data_desc(struct rsi_common *common, struct sk_buff *skb)
 			rsi_set_len_qno(&data_desc->len_qno,
 					(skb->len - FRAME_DESC_SZ),
 					RSI_WIFI_MGMT_Q);
-		if ((skb->len - header_size) == EAPOL4_PACKET_LEN) {
+		if (((skb->len - header_size) == EAPOL4_PACKET_LEN) ||
+		    ((skb->len - header_size) == EAPOL4_PACKET_LEN - 2)) {
 			data_desc->misc_flags |=
 				RSI_DESC_REQUIRE_CFM_TO_HOST;
 			xtend_desc->confirm_frame_type = EAPOL4_CONFIRM;
@@ -892,7 +893,7 @@ static int rsi_load_firmware(struct rsi_hw *adapter)
 	rsi_dbg(INIT_ZONE, "%s: Loading file %s\n", __func__, metadata_p->name);
 	adapter->fw_file_name = metadata_p->name;
 
-	status = reject_firmware(&fw_entry, metadata_p->name, adapter->device);
+	status = request_firmware(&fw_entry, metadata_p->name, adapter->device);
 	if (status < 0) {
 		rsi_dbg(ERR_ZONE, "%s: Failed to open file %s\n",
 			__func__, metadata_p->name);

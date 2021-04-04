@@ -42,7 +42,7 @@ static const struct dmi_system_id cht_table[] = {
 static struct snd_soc_acpi_mach cht_surface_mach = {
 	.id = "10EC5640",
 	.drv_name = "cht-bsw-rt5645",
-	.fw_filename = "/*(DEBLOBBED)*/",
+	.fw_filename = "intel/fw_sst_22a8.bin",
 	.board = "cht-bsw",
 	.sof_fw_filename = "intel/sof-cht.ri",
 	.sof_tplg_filename = "intel/sof-cht-rt5645.tplg",
@@ -66,7 +66,7 @@ struct snd_soc_acpi_mach  snd_soc_acpi_intel_cherrytrail_machines[] = {
 	{
 		.id = "10EC5670",
 		.drv_name = "cht-bsw-rt5672",
-		.fw_filename = "/*(DEBLOBBED)*/",
+		.fw_filename = "intel/fw_sst_22a8.bin",
 		.board = "cht-bsw",
 		.sof_fw_filename = "intel/sof-cht.ri",
 		.sof_tplg_filename = "intel/sof-cht-rt5670.tplg",
@@ -75,7 +75,7 @@ struct snd_soc_acpi_mach  snd_soc_acpi_intel_cherrytrail_machines[] = {
 	{
 		.id = "10EC5672",
 		.drv_name = "cht-bsw-rt5672",
-		.fw_filename = "/*(DEBLOBBED)*/",
+		.fw_filename = "intel/fw_sst_22a8.bin",
 		.board = "cht-bsw",
 		.sof_fw_filename = "intel/sof-cht.ri",
 		.sof_tplg_filename = "intel/sof-cht-rt5670.tplg",
@@ -84,7 +84,7 @@ struct snd_soc_acpi_mach  snd_soc_acpi_intel_cherrytrail_machines[] = {
 	{
 		.id = "10EC5645",
 		.drv_name = "cht-bsw-rt5645",
-		.fw_filename = "/*(DEBLOBBED)*/",
+		.fw_filename = "intel/fw_sst_22a8.bin",
 		.board = "cht-bsw",
 		.sof_fw_filename = "intel/sof-cht.ri",
 		.sof_tplg_filename = "intel/sof-cht-rt5645.tplg",
@@ -93,7 +93,7 @@ struct snd_soc_acpi_mach  snd_soc_acpi_intel_cherrytrail_machines[] = {
 	{
 		.id = "10EC5650",
 		.drv_name = "cht-bsw-rt5645",
-		.fw_filename = "/*(DEBLOBBED)*/",
+		.fw_filename = "intel/fw_sst_22a8.bin",
 		.board = "cht-bsw",
 		.sof_fw_filename = "intel/sof-cht.ri",
 		.sof_tplg_filename = "intel/sof-cht-rt5645.tplg",
@@ -102,7 +102,7 @@ struct snd_soc_acpi_mach  snd_soc_acpi_intel_cherrytrail_machines[] = {
 	{
 		.id = "10EC3270",
 		.drv_name = "cht-bsw-rt5645",
-		.fw_filename = "/*(DEBLOBBED)*/",
+		.fw_filename = "intel/fw_sst_22a8.bin",
 		.board = "cht-bsw",
 		.sof_fw_filename = "intel/sof-cht.ri",
 		.sof_tplg_filename = "intel/sof-cht-rt5645.tplg",
@@ -111,7 +111,7 @@ struct snd_soc_acpi_mach  snd_soc_acpi_intel_cherrytrail_machines[] = {
 	{
 		.id = "193C9890",
 		.drv_name = "cht-bsw-max98090",
-		.fw_filename = "/*(DEBLOBBED)*/",
+		.fw_filename = "intel/fw_sst_22a8.bin",
 		.board = "cht-bsw",
 		.sof_fw_filename = "intel/sof-cht.ri",
 		.sof_tplg_filename = "intel/sof-cht-max98090.tplg",
@@ -120,7 +120,7 @@ struct snd_soc_acpi_mach  snd_soc_acpi_intel_cherrytrail_machines[] = {
 	{
 		.id = "10508824",
 		.drv_name = "cht-bsw-nau8824",
-		.fw_filename = "/*(DEBLOBBED)*/",
+		.fw_filename = "intel/fw_sst_22a8.bin",
 		.board = "cht-bsw",
 		.sof_fw_filename = "intel/sof-cht.ri",
 		.sof_tplg_filename = "intel/sof-cht-nau8824.tplg",
@@ -129,7 +129,7 @@ struct snd_soc_acpi_mach  snd_soc_acpi_intel_cherrytrail_machines[] = {
 	{
 		.id = "DLGS7212",
 		.drv_name = "bytcht_da7213",
-		.fw_filename = "/*(DEBLOBBED)*/",
+		.fw_filename = "intel/fw_sst_22a8.bin",
 		.board = "bytcht_da7213",
 		.sof_fw_filename = "intel/sof-cht.ri",
 		.sof_tplg_filename = "intel/sof-cht-da7213.tplg",
@@ -138,7 +138,7 @@ struct snd_soc_acpi_mach  snd_soc_acpi_intel_cherrytrail_machines[] = {
 	{
 		.id = "DLGS7213",
 		.drv_name = "bytcht_da7213",
-		.fw_filename = "/*(DEBLOBBED)*/",
+		.fw_filename = "intel/fw_sst_22a8.bin",
 		.board = "bytcht_da7213",
 		.sof_fw_filename = "intel/sof-cht.ri",
 		.sof_tplg_filename = "intel/sof-cht-da7213.tplg",
@@ -147,7 +147,7 @@ struct snd_soc_acpi_mach  snd_soc_acpi_intel_cherrytrail_machines[] = {
 	{
 		.id = "ESSX8316",
 		.drv_name = "bytcht_es8316",
-		.fw_filename = "/*(DEBLOBBED)*/",
+		.fw_filename = "intel/fw_sst_22a8.bin",
 		.board = "bytcht_es8316",
 		.sof_fw_filename = "intel/sof-cht.ri",
 		.sof_tplg_filename = "intel/sof-cht-es8316.tplg",
@@ -157,7 +157,7 @@ struct snd_soc_acpi_mach  snd_soc_acpi_intel_cherrytrail_machines[] = {
 	{
 		.id = "10EC5640",
 		.drv_name = "bytcr_rt5640",
-		.fw_filename = "/*(DEBLOBBED)*/",
+		.fw_filename = "intel/fw_sst_22a8.bin",
 		.board = "bytcr_rt5640",
 		.machine_quirk = cht_quirk,
 		.sof_fw_filename = "intel/sof-cht.ri",
@@ -167,7 +167,7 @@ struct snd_soc_acpi_mach  snd_soc_acpi_intel_cherrytrail_machines[] = {
 	{
 		.id = "10EC3276",
 		.drv_name = "bytcr_rt5640",
-		.fw_filename = "/*(DEBLOBBED)*/",
+		.fw_filename = "intel/fw_sst_22a8.bin",
 		.board = "bytcr_rt5640",
 		.sof_fw_filename = "intel/sof-cht.ri",
 		.sof_tplg_filename = "intel/sof-cht-rt5640.tplg",
@@ -177,7 +177,7 @@ struct snd_soc_acpi_mach  snd_soc_acpi_intel_cherrytrail_machines[] = {
 	{
 		.id = "10EC5651",
 		.drv_name = "bytcr_rt5651",
-		.fw_filename = "/*(DEBLOBBED)*/",
+		.fw_filename = "intel/fw_sst_22a8.bin",
 		.board = "bytcr_rt5651",
 		.sof_fw_filename = "intel/sof-cht.ri",
 		.sof_tplg_filename = "intel/sof-cht-rt5651.tplg",
@@ -191,7 +191,7 @@ struct snd_soc_acpi_mach  snd_soc_acpi_intel_cherrytrail_machines[] = {
 	{
 		.id = "808622A8",
 		.drv_name = "bytcht_nocodec",
-		.fw_filename = "/*(DEBLOBBED)*/",
+		.fw_filename = "intel/fw_sst_22a8.bin",
 		.board = "bytcht_nocodec",
 	},
 #endif

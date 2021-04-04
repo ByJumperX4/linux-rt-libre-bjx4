@@ -405,10 +405,10 @@ int btbcm_initialize(struct hci_dev *hdev, char *fw_name, size_t len,
 		pid = get_unaligned_le16(skb->data + 3);
 		kfree_skb(skb);
 
-		snprintf(fw_name, len, "/*(DEBLOBBED)*/",
+		snprintf(fw_name, len, "brcm/%s-%4.4x-%4.4x.hcd",
 			 hw_name, vid, pid);
 	} else {
-		snprintf(fw_name, len, "/*(DEBLOBBED)*/", hw_name);
+		snprintf(fw_name, len, "brcm/%s.hcd", hw_name);
 	}
 
 	bt_dev_info(hdev, "%s (%3.3u.%3.3u.%3.3u) build %4.4u",
@@ -449,7 +449,7 @@ int btbcm_setup_patchram(struct hci_dev *hdev)
 	if (err)
 		return err;
 
-	err = reject_firmware(&fw, fw_name, &hdev->dev);
+	err = request_firmware(&fw, fw_name, &hdev->dev);
 	if (err < 0) {
 		bt_dev_info(hdev, "BCM: Patch %s not found", fw_name);
 		goto done;

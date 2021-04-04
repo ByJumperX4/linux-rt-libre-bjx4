@@ -27,6 +27,6 @@
 
 /* FW names */
 
-#define QTN_PCI_PEARL_FW_NAME		"/*(DEBLOBBED)*/"
+#define QTN_PCI_PEARL_FW_NAME		"qtn/fmac_qsr10g.img"
 
 #endif	/* _QTN_HW_IDS_H_ */

@@ -18,7 +18,7 @@ struct snd_soc_acpi_mach snd_soc_acpi_intel_glk_machines[] = {
 	{
 		.id = "INT343A",
 		.drv_name = "glk_alc298s_i2s",
-		.fw_filename = "/*(DEBLOBBED)*/",
+		.fw_filename = "intel/dsp_fw_glk.bin",
 		.sof_fw_filename = "intel/sof-glk.ri",
 		.sof_tplg_filename = "intel/sof-glk-alc298.tplg",
 		.asoc_plat_name = "0000:00:0e.0",
@@ -26,7 +26,7 @@ struct snd_soc_acpi_mach snd_soc_acpi_intel_glk_machines[] = {
 	{
 		.id = "DLGS7219",
 		.drv_name = "glk_da7219_max98357a",
-		.fw_filename = "/*(DEBLOBBED)*/",
+		.fw_filename = "intel/dsp_fw_glk.bin",
 		.machine_quirk = snd_soc_acpi_codec_list,
 		.quirk_data = &glk_codecs,
 		.sof_fw_filename = "intel/sof-glk.ri",

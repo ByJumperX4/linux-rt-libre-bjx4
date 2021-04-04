@@ -14,7 +14,7 @@
  * published by the Free Software Foundation.
  */
 
-/*(DEBLOBBED)*/
+/* for isl3886 register definitions used on ver 1 devices */
 #include "p54pci.h"
 #include <linux/usb/net2280.h>
 

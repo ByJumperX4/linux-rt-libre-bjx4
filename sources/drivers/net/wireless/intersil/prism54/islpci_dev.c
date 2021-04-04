@@ -39,10 +39,12 @@
 #include "islpci_eth.h"
 #include "oid_mgt.h"
 
-#define ISL3877_IMAGE_FILE	"/*(DEBLOBBED)*/"
-#define ISL3886_IMAGE_FILE	"/*(DEBLOBBED)*/"
-#define ISL3890_IMAGE_FILE	"/*(DEBLOBBED)*/"
-/*(DEBLOBBED)*/
+#define ISL3877_IMAGE_FILE	"isl3877"
+#define ISL3886_IMAGE_FILE	"isl3886"
+#define ISL3890_IMAGE_FILE	"isl3890"
+MODULE_FIRMWARE(ISL3877_IMAGE_FILE);
+MODULE_FIRMWARE(ISL3886_IMAGE_FILE);
+MODULE_FIRMWARE(ISL3890_IMAGE_FILE);
 
 static int prism54_bring_down(islpci_private *);
 static int islpci_alloc_memory(islpci_private *);
@@ -89,10 +91,10 @@ isl_upload_firmware(islpci_private *priv)
 		long fw_len;
 		const u32 *fw_ptr;
 
-		rc = reject_firmware(&fw_entry, priv->firmware, PRISM_FW_PDEV);
+		rc = request_firmware(&fw_entry, priv->firmware, PRISM_FW_PDEV);
 		if (rc) {
 			printk(KERN_ERR
-			       "%s: reject_firmware() failed for '%s'\n",
+			       "%s: request_firmware() failed for '%s'\n",
 			       "prism54", priv->firmware);
 			return rc;
 		}

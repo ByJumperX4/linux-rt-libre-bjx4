@@ -364,7 +364,7 @@ static int mt76x0_resume(struct usb_interface *usb_intf)
 }
 
 MODULE_DEVICE_TABLE(usb, mt76x0_device_table);
-/*(DEBLOBBED)*/
+MODULE_FIRMWARE(MT7610_FIRMWARE);
 MODULE_LICENSE("GPL");
 
 static struct usb_driver mt76x0_driver = {

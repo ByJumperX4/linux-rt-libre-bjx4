@@ -59,7 +59,8 @@ MODULE_SUPPORTED_DEVICE("{{ESS,Maestro3 PCI},"
 		"{ESS,Allegro PCI},"
 		"{ESS,Allegro-1 PCI},"
 	        "{ESS,Canyon3D-2/LE PCI}}");
-/*(DEBLOBBED)*/
+MODULE_FIRMWARE("ess/maestro3_assp_kernel.fw");
+MODULE_FIRMWARE("ess/maestro3_assp_minisrc.fw");
 
 static int index[SNDRV_CARDS] = SNDRV_DEFAULT_IDX;	/* Index 0-MAX */
 static char *id[SNDRV_CARDS] = SNDRV_DEFAULT_STR;	/* ID for this card */
@@ -2619,13 +2620,13 @@ snd_m3_create(struct snd_card *card, struct pci_dev *pci,
 		return -ENOMEM;
 	}
 
-	err = reject_firmware(&chip->assp_kernel_image,
-			       "/*(DEBLOBBED)*/", &pci->dev);
+	err = request_firmware(&chip->assp_kernel_image,
+			       "ess/maestro3_assp_kernel.fw", &pci->dev);
 	if (err < 0)
 		goto free_chip;
 
-	err = reject_firmware(&chip->assp_minisrc_image,
-			       "/*(DEBLOBBED)*/", &pci->dev);
+	err = request_firmware(&chip->assp_minisrc_image,
+			       "ess/maestro3_assp_minisrc.fw", &pci->dev);
 	if (err < 0)
 		goto free_chip;
 

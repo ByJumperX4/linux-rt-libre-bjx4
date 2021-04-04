@@ -268,7 +268,7 @@ static int mrvl_load_firmware(struct hci_dev *hdev, const char *name)
 	const u8 *fw_ptr, *fw_max;
 	int err;
 
-	err = reject_firmware(&fw, name, &hdev->dev);
+	err = request_firmware(&fw, name, &hdev->dev);
 	if (err < 0) {
 		bt_dev_err(hdev, "Failed to load firmware file %s", name);
 		return err;
@@ -350,7 +350,7 @@ static int mrvl_setup(struct hci_uart *hu)
 
 	hci_uart_set_flow_control(hu, true);
 
-	err = mrvl_load_firmware(hu->hdev, "/*(DEBLOBBED)*/");
+	err = mrvl_load_firmware(hu->hdev, "mrvl/helper_uart_3000000.bin");
 	if (err) {
 		bt_dev_err(hu->hdev, "Unable to download firmware helper");
 		return -EINVAL;
@@ -359,7 +359,7 @@ static int mrvl_setup(struct hci_uart *hu)
 	hci_uart_set_baudrate(hu, 3000000);
 	hci_uart_set_flow_control(hu, false);
 
-	err = mrvl_load_firmware(hu->hdev, "/*(DEBLOBBED)*/");
+	err = mrvl_load_firmware(hu->hdev, "mrvl/uart8897_bt.bin");
 	if (err)
 		return err;
 

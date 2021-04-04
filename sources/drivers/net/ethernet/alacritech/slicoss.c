@@ -1047,7 +1047,8 @@ static u32 slic_read_dword_from_firmware(const struct firmware *fw, int *offset)
 	return le32_to_cpu(val);
 }
 
-/*(DEBLOBBED)*/
+MODULE_FIRMWARE(SLIC_RCV_FIRMWARE_MOJAVE);
+MODULE_FIRMWARE(SLIC_RCV_FIRMWARE_OASIS);
 
 static int slic_load_rcvseq_firmware(struct slic_device *sdev)
 {
@@ -1061,7 +1062,7 @@ static int slic_load_rcvseq_firmware(struct slic_device *sdev)
 
 	file = (sdev->model == SLIC_MODEL_OASIS) ?  SLIC_RCV_FIRMWARE_OASIS :
 						    SLIC_RCV_FIRMWARE_MOJAVE;
-	err = reject_firmware(&fw, file, &sdev->pdev->dev);
+	err = request_firmware(&fw, file, &sdev->pdev->dev);
 	if (err) {
 		dev_err(&sdev->pdev->dev,
 			"failed to load receive sequencer firmware %s\n", file);
@@ -1114,7 +1115,8 @@ release:
 	return err;
 }
 
-/*(DEBLOBBED)*/
+MODULE_FIRMWARE(SLIC_FIRMWARE_MOJAVE);
+MODULE_FIRMWARE(SLIC_FIRMWARE_OASIS);
 
 static int slic_load_firmware(struct slic_device *sdev)
 {
@@ -1135,7 +1137,7 @@ static int slic_load_firmware(struct slic_device *sdev)
 
 	file = (sdev->model == SLIC_MODEL_OASIS) ?  SLIC_FIRMWARE_OASIS :
 						    SLIC_FIRMWARE_MOJAVE;
-	err = reject_firmware(&fw, file, &sdev->pdev->dev);
+	err = request_firmware(&fw, file, &sdev->pdev->dev);
 	if (err) {
 		dev_err(&sdev->pdev->dev, "failed to load firmware %s\n", file);
 		return err;

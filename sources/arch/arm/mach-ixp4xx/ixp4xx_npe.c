@@ -533,7 +533,7 @@ int npe_load_firmware(struct npe *npe, const char *name, struct device *dev)
 	int i, j, err, data_size, instr_size, blocks, table_end;
 	u32 cmd;
 
-	if ((err = reject_firmware(&fw_entry, name, dev)) != 0)
+	if ((err = request_firmware(&fw_entry, name, dev)) != 0)
 		return err;
 
 	err = -EINVAL;
@@ -728,7 +728,9 @@ module_exit(npe_cleanup_module);
 
 MODULE_AUTHOR("Krzysztof Halasa");
 MODULE_LICENSE("GPL v2");
-/*(DEBLOBBED)*/
+MODULE_FIRMWARE(NPE_A_FIRMWARE);
+MODULE_FIRMWARE(NPE_B_FIRMWARE);
+MODULE_FIRMWARE(NPE_C_FIRMWARE);
 
 EXPORT_SYMBOL(npe_names);
 EXPORT_SYMBOL(npe_running);

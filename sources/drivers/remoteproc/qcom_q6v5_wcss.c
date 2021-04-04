@@ -532,7 +532,7 @@ static int q6v5_wcss_probe(struct platform_device *pdev)
 	int ret;
 
 	rproc = rproc_alloc(&pdev->dev, pdev->name, &q6v5_wcss_ops,
-			    "/*(DEBLOBBED)*/", sizeof(*wcss));
+			    "IPQ8074/q6_fw.mdt", sizeof(*wcss));
 	if (!rproc) {
 		dev_err(&pdev->dev, "failed to allocate rproc\n");
 		return -ENOMEM;

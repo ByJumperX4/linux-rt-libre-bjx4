@@ -37,7 +37,12 @@
 #include "sdma0/sdma0_4_0_offset.h"
 #include "nbio/nbio_6_1_offset.h"
 
-/*(DEBLOBBED)*/
+MODULE_FIRMWARE("amdgpu/vega10_sos.bin");
+MODULE_FIRMWARE("amdgpu/vega10_asd.bin");
+MODULE_FIRMWARE("amdgpu/vega12_sos.bin");
+MODULE_FIRMWARE("amdgpu/vega12_asd.bin");
+MODULE_FIRMWARE("amdgpu/vega20_sos.bin");
+MODULE_FIRMWARE("amdgpu/vega20_asd.bin");
 
 
 #define smnMP1_FIRMWARE_FLAGS 0x3010028
@@ -115,8 +120,8 @@ static int psp_v3_1_init_microcode(struct psp_context *psp)
 	default: BUG();
 	}
 
-	snprintf(fw_name, sizeof(fw_name), "/*(DEBLOBBED)*/", chip_name);
-	err = reject_firmware(&adev->psp.sos_fw, fw_name, adev->dev);
+	snprintf(fw_name, sizeof(fw_name), "amdgpu/%s_sos.bin", chip_name);
+	err = request_firmware(&adev->psp.sos_fw, fw_name, adev->dev);
 	if (err)
 		goto out;
 
@@ -135,8 +140,8 @@ static int psp_v3_1_init_microcode(struct psp_context *psp)
 	adev->psp.sos_start_addr = (uint8_t *)adev->psp.sys_start_addr +
 				le32_to_cpu(hdr->sos_offset_bytes);
 
-	snprintf(fw_name, sizeof(fw_name), "/*(DEBLOBBED)*/", chip_name);
-	err = reject_firmware(&adev->psp.asd_fw, fw_name, adev->dev);
+	snprintf(fw_name, sizeof(fw_name), "amdgpu/%s_asd.bin", chip_name);
+	err = request_firmware(&adev->psp.asd_fw, fw_name, adev->dev);
 	if (err)
 		goto out;
 

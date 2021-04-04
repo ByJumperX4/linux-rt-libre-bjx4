@@ -516,11 +516,11 @@ static int brcmf_fw_request_next_item(struct brcmf_fw *fwctx, bool async)
 		  cur->path);
 
 	if (async)
-		ret = reject_firmware_nowait(THIS_MODULE, true, cur->path,
+		ret = request_firmware_nowait(THIS_MODULE, true, cur->path,
 					      fwctx->dev, GFP_KERNEL, fwctx,
 					      brcmf_fw_request_done);
 	else
-		ret = reject_firmware(&fw, cur->path, fwctx->dev);
+		ret = request_firmware(&fw, cur->path, fwctx->dev);
 
 	if (ret < 0) {
 		brcmf_fw_request_done(NULL, fwctx);

@@ -2489,7 +2489,11 @@ static void fore200e_monitor_puts(struct fore200e *fore200e, char *str)
     while (fore200e_monitor_getc(fore200e) >= 0);
 }
 
-/*(DEBLOBBED)*/
+#ifdef __LITTLE_ENDIAN
+#define FW_EXT ".bin"
+#else
+#define FW_EXT "_ecd.bin2"
+#endif
 
 static int fore200e_load_and_start_fw(struct fore200e *fore200e)
 {
@@ -2511,8 +2515,8 @@ static int fore200e_load_and_start_fw(struct fore200e *fore200e)
     else
 	return err;
 
-    /*(DEBLOBBED)*/
-    if ((err = reject_firmware(&firmware, buf, device)) < 0) {
+    sprintf(buf, "%s%s", fore200e->bus->proc_name, FW_EXT);
+    if ((err = request_firmware(&firmware, buf, device)) < 0) {
 	printk(FORE200E "problem loading firmware image %s\n", fore200e->bus->model_name);
 	return err;
     }
@@ -3178,11 +3182,11 @@ static const struct fore200e_bus fore200e_bus[] = {
 MODULE_LICENSE("GPL");
 #ifdef CONFIG_PCI
 #ifdef __LITTLE_ENDIAN__
-/*(DEBLOBBED)*/
+MODULE_FIRMWARE("pca200e.bin");
 #else
-/*(DEBLOBBED)*/
+MODULE_FIRMWARE("pca200e_ecd.bin2");
 #endif
 #endif /* CONFIG_PCI */
 #ifdef CONFIG_SBUS
-/*(DEBLOBBED)*/
+MODULE_FIRMWARE("sba200e_ecd.bin2");
 #endif

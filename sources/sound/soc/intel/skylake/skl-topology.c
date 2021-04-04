@@ -3722,14 +3722,14 @@ int skl_tplg_init(struct snd_soc_component *component, struct hdac_bus *bus)
 	struct skl *skl = bus_to_skl(bus);
 	struct skl_pipeline *ppl;
 
-	ret = reject_firmware(&fw, skl->tplg_name, bus->dev);
+	ret = request_firmware(&fw, skl->tplg_name, bus->dev);
 	if (ret < 0) {
-		dev_info(bus->dev, "tplg fw %s load failed with %d, falling back to /*(DEBLOBBED)*/",
+		dev_info(bus->dev, "tplg fw %s load failed with %d, falling back to dfw_sst.bin",
 				skl->tplg_name, ret);
-		ret = reject_firmware(&fw, "/*(DEBLOBBED)*/", bus->dev);
+		ret = request_firmware(&fw, "dfw_sst.bin", bus->dev);
 		if (ret < 0) {
 			dev_err(bus->dev, "Fallback tplg fw %s load failed with %d\n",
-					"/*(DEBLOBBED)*/", ret);
+					"dfw_sst.bin", ret);
 			return ret;
 		}
 	}

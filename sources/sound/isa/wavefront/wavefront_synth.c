@@ -56,7 +56,7 @@ static int debug_default = 0;  /* you can set this to control debugging
 
 /* XXX this needs to be made firmware and hardware version dependent */
 
-#define DEFAULT_OSPATH	"/*(DEBLOBBED)*/"
+#define DEFAULT_OSPATH	"wavefront.os"
 static char *ospath = DEFAULT_OSPATH; /* the firmware file name */
 
 static int wait_usecs = 150; /* This magic number seems to give pretty optimal
@@ -1962,7 +1962,7 @@ wavefront_download_firmware (snd_wavefront_t *dev, char *path)
 	int section_cnt_downloaded = 0;
 	const struct firmware *firmware;
 
-	err = reject_firmware(&firmware, path, dev->card->dev);
+	err = request_firmware(&firmware, path, dev->card->dev);
 	if (err < 0) {
 		snd_printk(KERN_ERR "firmware (%s) download failed!!!\n", path);
 		return 1;
@@ -2212,4 +2212,4 @@ snd_wavefront_detect (snd_wavefront_card_t *card)
 	return 0;
 }
 
-/*(DEBLOBBED)*/
+MODULE_FIRMWARE(DEFAULT_OSPATH);

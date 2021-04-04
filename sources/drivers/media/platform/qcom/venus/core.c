@@ -429,7 +429,7 @@ static const struct venus_resources msm8916_res = {
 	.vmem_size = 0,
 	.vmem_addr = 0,
 	.dma_mask = 0xddc00000 - 1,
-	.fwname = "/*(DEBLOBBED)*/",
+	.fwname = "qcom/venus-1.8/venus.mdt",
 };
 
 static const struct freq_tbl msm8996_freq_table[] = {
@@ -459,7 +459,7 @@ static const struct venus_resources msm8996_res = {
 	.vmem_size = 0,
 	.vmem_addr = 0,
 	.dma_mask = 0xddc00000 - 1,
-	.fwname = "/*(DEBLOBBED)*/",
+	.fwname = "qcom/venus-4.2/venus.mdt",
 };
 
 static const struct freq_tbl sdm845_freq_table[] = {
@@ -480,7 +480,7 @@ static const struct venus_resources sdm845_res = {
 	.vmem_size = 0,
 	.vmem_addr = 0,
 	.dma_mask = 0xe0000000 - 1,
-	.fwname = "/*(DEBLOBBED)*/",
+	.fwname = "qcom/venus-5.2/venus.mdt",
 };
 
 static const struct of_device_id venus_dt_match[] = {

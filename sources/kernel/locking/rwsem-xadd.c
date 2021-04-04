@@ -405,7 +405,6 @@ static inline bool rwsem_can_spin_on_owner(struct rw_semaphore *sem)
 static noinline bool rwsem_spin_on_owner(struct rw_semaphore *sem)
 {
 	struct task_struct *owner = READ_ONCE(sem->owner);
-	int i = 0;
 
 	if (!is_rwsem_owner_spinnable(owner))
 		return false;
@@ -428,8 +427,8 @@ static noinline bool rwsem_spin_on_owner(struct rw_semaphore *sem)
 			rcu_read_unlock();
 			return false;
 		}
-		if (i++ > 1000)
-			cpu_relax();
+
+		cpu_relax();
 	}
 	rcu_read_unlock();
 

@@ -600,13 +600,13 @@ static const int wl12xx_rtable[REG_TABLE_LEN] = {
 };
 
 /* TODO: maybe move to a new header file? */
-#define WL127X_FW_NAME_MULTI	"/*(DEBLOBBED)*/"
-#define WL127X_FW_NAME_SINGLE	"/*(DEBLOBBED)*/"
-#define WL127X_PLT_FW_NAME	"/*(DEBLOBBED)*/"
+#define WL127X_FW_NAME_MULTI	"ti-connectivity/wl127x-fw-5-mr.bin"
+#define WL127X_FW_NAME_SINGLE	"ti-connectivity/wl127x-fw-5-sr.bin"
+#define WL127X_PLT_FW_NAME	"ti-connectivity/wl127x-fw-5-plt.bin"
 
-#define WL128X_FW_NAME_MULTI	"/*(DEBLOBBED)*/"
-#define WL128X_FW_NAME_SINGLE	"/*(DEBLOBBED)*/"
-#define WL128X_PLT_FW_NAME	"/*(DEBLOBBED)*/"
+#define WL128X_FW_NAME_MULTI	"ti-connectivity/wl128x-fw-5-mr.bin"
+#define WL128X_FW_NAME_SINGLE	"ti-connectivity/wl128x-fw-5-sr.bin"
+#define WL128X_PLT_FW_NAME	"ti-connectivity/wl128x-fw-5-plt.bin"
 
 static int wl127x_prepare_read(struct wl1271 *wl, u32 rx_desc, u32 len)
 {
@@ -649,7 +649,6 @@ static int wl12xx_identify_chip(struct wl1271 *wl)
 		wl->quirks |= WLCORE_QUIRK_LEGACY_NVS |
 			      WLCORE_QUIRK_DUAL_PROBE_TMPL |
 			      WLCORE_QUIRK_TKIP_HEADER_SPACE |
-			      WLCORE_QUIRK_START_STA_FAILS |
 			      WLCORE_QUIRK_AP_ZERO_SESSION_ID;
 		wl->sr_fw_name = WL127X_FW_NAME_SINGLE;
 		wl->mr_fw_name = WL127X_FW_NAME_MULTI;
@@ -673,7 +672,6 @@ static int wl12xx_identify_chip(struct wl1271 *wl)
 		wl->quirks |= WLCORE_QUIRK_LEGACY_NVS |
 			      WLCORE_QUIRK_DUAL_PROBE_TMPL |
 			      WLCORE_QUIRK_TKIP_HEADER_SPACE |
-			      WLCORE_QUIRK_START_STA_FAILS |
 			      WLCORE_QUIRK_AP_ZERO_SESSION_ID;
 		wl->plt_fw_name = WL127X_PLT_FW_NAME;
 		wl->sr_fw_name = WL127X_FW_NAME_SINGLE;
@@ -702,7 +700,6 @@ static int wl12xx_identify_chip(struct wl1271 *wl)
 		wl->quirks |= WLCORE_QUIRK_TX_BLOCKSIZE_ALIGN |
 			      WLCORE_QUIRK_DUAL_PROBE_TMPL |
 			      WLCORE_QUIRK_TKIP_HEADER_SPACE |
-			      WLCORE_QUIRK_START_STA_FAILS |
 			      WLCORE_QUIRK_AP_ZERO_SESSION_ID;
 
 		wlcore_set_min_fw_ver(wl, WL128X_CHIP_VER,
@@ -1970,4 +1967,9 @@ MODULE_PARM_DESC(tcxo,
 
 MODULE_LICENSE("GPL v2");
 MODULE_AUTHOR("Luciano Coelho <coelho@ti.com>");
-/*(DEBLOBBED)*/
+MODULE_FIRMWARE(WL127X_FW_NAME_SINGLE);
+MODULE_FIRMWARE(WL127X_FW_NAME_MULTI);
+MODULE_FIRMWARE(WL127X_PLT_FW_NAME);
+MODULE_FIRMWARE(WL128X_FW_NAME_SINGLE);
+MODULE_FIRMWARE(WL128X_FW_NAME_MULTI);
+MODULE_FIRMWARE(WL128X_PLT_FW_NAME);

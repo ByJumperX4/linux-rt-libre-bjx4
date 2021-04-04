@@ -2465,7 +2465,7 @@ static int coda_firmware_request(struct coda_dev *dev)
 	dev_dbg(&dev->plat_dev->dev, "requesting firmware '%s' for %s\n", fw,
 		coda_product_name(dev->devtype->product));
 
-	return reject_firmware_nowait(THIS_MODULE, true, fw,
+	return request_firmware_nowait(THIS_MODULE, true, fw,
 				       &dev->plat_dev->dev, GFP_KERNEL, dev,
 				       coda_fw_callback);
 }
@@ -2555,9 +2555,9 @@ enum coda_platform {
 static const struct coda_devtype coda_devdata[] = {
 	[CODA_IMX27] = {
 		.firmware     = {
-			"/*(DEBLOBBED)*/",
-			"/*(DEBLOBBED)*/",
-			"/*(DEBLOBBED)*/"
+			"vpu_fw_imx27_TO2.bin",
+			"vpu/vpu_fw_imx27_TO2.bin",
+			"v4l-codadx6-imx27.bin"
 		},
 		.product      = CODA_DX6,
 		.codecs       = codadx6_codecs,
@@ -2568,10 +2568,10 @@ static const struct coda_devtype coda_devdata[] = {
 		.iram_size    = 0xb000,
 	},
 	[CODA_IMX51] = {
-		/*(DEBLOBBED)*/{
-			"/*(DEBLOBBED)*/",
-			"/*(DEBLOBBED)*/",
-			"/*(DEBLOBBED)*/"
+		.firmware     = {
+			"vpu_fw_imx51.bin",
+			"vpu/vpu_fw_imx51.bin",
+			"v4l-codahx4-imx51.bin"
 		},
 		.product      = CODA_HX4,
 		.codecs       = codahx4_codecs,
@@ -2584,9 +2584,9 @@ static const struct coda_devtype coda_devdata[] = {
 	},
 	[CODA_IMX53] = {
 		.firmware     = {
-			"/*(DEBLOBBED)*/",
-			"/*(DEBLOBBED)*/",
-			"/*(DEBLOBBED)*/"
+			"vpu_fw_imx53.bin",
+			"vpu/vpu_fw_imx53.bin",
+			"v4l-coda7541-imx53.bin"
 		},
 		.product      = CODA_7541,
 		.codecs       = coda7_codecs,
@@ -2599,9 +2599,9 @@ static const struct coda_devtype coda_devdata[] = {
 	},
 	[CODA_IMX6Q] = {
 		.firmware     = {
-			"/*(DEBLOBBED)*/",
-			"/*(DEBLOBBED)*/",
-			"/*(DEBLOBBED)*/"
+			"vpu_fw_imx6q.bin",
+			"vpu/vpu_fw_imx6q.bin",
+			"v4l-coda960-imx6q.bin"
 		},
 		.product      = CODA_960,
 		.codecs       = coda9_codecs,
@@ -2614,9 +2614,9 @@ static const struct coda_devtype coda_devdata[] = {
 	},
 	[CODA_IMX6DL] = {
 		.firmware     = {
-			"/*(DEBLOBBED)*/",
-			"/*(DEBLOBBED)*/",
-			"/*(DEBLOBBED)*/"
+			"vpu_fw_imx6d.bin",
+			"vpu/vpu_fw_imx6d.bin",
+			"v4l-coda960-imx6dl.bin"
 		},
 		.product      = CODA_960,
 		.codecs       = coda9_codecs,

@@ -707,7 +707,7 @@ static int intel_setup(struct hci_uart *hu)
 	switch (ver.hw_variant) {
 	case 0x0b:      /* SfP */
 	case 0x0c:      /* WsP */
-		snprintf(fwname, sizeof(fwname), "/*(DEBLOBBED)*/",
+		snprintf(fwname, sizeof(fwname), "intel/ibt-%u-%u.sfi",
 			 le16_to_cpu(ver.hw_variant),
 			 le16_to_cpu(params.dev_revid));
 		break;
@@ -723,7 +723,7 @@ static int intel_setup(struct hci_uart *hu)
 		return -EINVAL;
 	}
 
-	err = reject_firmware(&fw, fwname, &hdev->dev);
+	err = request_firmware(&fw, fwname, &hdev->dev);
 	if (err < 0) {
 		bt_dev_err(hdev, "Failed to load Intel firmware file (%d)",
 			   err);

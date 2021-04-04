@@ -34,24 +34,24 @@
  * low-power state and comes back to normal.
  */
 
-#define I915_CSR_GLK "/*(DEBLOBBED)*/"
-/*(DEBLOBBED)*/
+#define I915_CSR_GLK "i915/glk_dmc_ver1_04.bin"
+MODULE_FIRMWARE(I915_CSR_GLK);
 #define GLK_CSR_VERSION_REQUIRED	CSR_VERSION(1, 4)
 
-#define I915_CSR_CNL "/*(DEBLOBBED)*/"
-/*(DEBLOBBED)*/
+#define I915_CSR_CNL "i915/cnl_dmc_ver1_07.bin"
+MODULE_FIRMWARE(I915_CSR_CNL);
 #define CNL_CSR_VERSION_REQUIRED	CSR_VERSION(1, 7)
 
-#define I915_CSR_KBL "/*(DEBLOBBED)*/"
-/*(DEBLOBBED)*/
+#define I915_CSR_KBL "i915/kbl_dmc_ver1_04.bin"
+MODULE_FIRMWARE(I915_CSR_KBL);
 #define KBL_CSR_VERSION_REQUIRED	CSR_VERSION(1, 4)
 
-#define I915_CSR_SKL "/*(DEBLOBBED)*/"
-/*(DEBLOBBED)*/
+#define I915_CSR_SKL "i915/skl_dmc_ver1_27.bin"
+MODULE_FIRMWARE(I915_CSR_SKL);
 #define SKL_CSR_VERSION_REQUIRED	CSR_VERSION(1, 27)
 
-#define I915_CSR_BXT "/*(DEBLOBBED)*/"
-/*(DEBLOBBED)*/
+#define I915_CSR_BXT "i915/bxt_dmc_ver1_07.bin"
+MODULE_FIRMWARE(I915_CSR_BXT);
 #define BXT_CSR_VERSION_REQUIRED	CSR_VERSION(1, 7)
 
 
@@ -433,7 +433,7 @@ static void csr_load_work_fn(struct work_struct *work)
 	dev_priv = container_of(work, typeof(*dev_priv), csr.work);
 	csr = &dev_priv->csr;
 
-	reject_firmware(&fw, dev_priv->csr.fw_path, &dev_priv->drm.pdev->dev);
+	request_firmware(&fw, dev_priv->csr.fw_path, &dev_priv->drm.pdev->dev);
 	if (fw)
 		dev_priv->csr.dmc_payload = parse_csr_fw(dev_priv, fw);
 

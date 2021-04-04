@@ -1181,7 +1181,7 @@ static void qtnf_fw_work_handler(struct work_struct *work)
 	if (flashboot) {
 		state |= QTN_RC_FW_FLASHBOOT;
 	} else {
-		ret = reject_firmware(&fw, bus->fwname, &pdev->dev);
+		ret = request_firmware(&fw, bus->fwname, &pdev->dev);
 		if (ret < 0) {
 			pr_err("failed to get firmware %s\n", bus->fwname);
 			goto fw_load_fail;

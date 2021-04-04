@@ -702,7 +702,7 @@
 					 <&clks IMX5_CLK_AHB>;
 				clock-names = "ipg", "ahb";
 				#dma-cells = <3>;
-				fsl,sdma-ram-script-name = "/*(DEBLOBBED)*/";
+				fsl,sdma-ram-script-name = "imx/sdma/sdma-imx53.bin";
 			};
 
 			cspi: cspi@63fc0000 {
