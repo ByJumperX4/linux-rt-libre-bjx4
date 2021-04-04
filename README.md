@@ -8,17 +8,15 @@ Current kernel branch: 4.19 (as of 4 April 2021)
 
 `Installation instructions (in case you don't know how to compile a linux kernel, but it's the normal process if you already know):`
 
-First, you want to clone the repo and clone kernel.org's kernel source code
+First, you want to clone the repo
 ```
 git clone https://github.com/ByJumperX4/linux-rt-libre-bjx4.git
 
 cd linux-rt-libre-bjx4
 
-git submodule init
-
 ```
 
-Cloning the kernel source may be long, as it's very big
+Cloning the kernel source may be a bit long, as it's pretty big.
 
 Next, copy the sources into a working directory, got into that working directory, patch the kernel's sources and remove all the proprietary blobs
 
@@ -86,17 +84,11 @@ rm -rf work/
 
 ```
 
-Next, update both this repository and the kernel source
+Next, update this repository
 
 ```
 
 git pull
-
-cd sources/
-
-git pull
-
-cd ..
 
 ```
 
