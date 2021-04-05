@@ -6225,7 +6225,7 @@ initblob="[^\\n=]*=\\([ 	\\n\\\\]\\|$comment\\)*[{]\\([^;/]\\|[/][^/*]\\|$commen
 
 # Regular expression that matches a C (possibly multi-line) #define
 # that contains a blob.
-defineblob='[ 	]*#[ 	]*define[ 	][^\n]*\([\\][\n][^\n]*\)*'"$blobseq"'\([^\n]*\\[\n]\)*'
+defineblob='[ 	]*#[ 	]*define[ 	][!\n]*\([\\][\n][!\n]*\)*'"$blobseq"'\([!\n]*\\[\n]\)*'
 
 # Regular expression that matches an assembly label followed by a blob
 # without any intervening label.
