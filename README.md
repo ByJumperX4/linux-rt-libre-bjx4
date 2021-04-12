@@ -28,7 +28,7 @@ cd work
 
 sh ../patch.sh
 
-cp ../cp deblob-check ../deblob-main ./
+cp ../deblob-check ../deblob-main ./
 
 sh ../deblob-4.19
 
@@ -102,7 +102,7 @@ cd work
 
 sh ../patch.sh
 
-cp ../cp deblob-check ../deblob-main ./
+cp ../deblob-check ../deblob-main ./
 
 sh ../deblob-4.19
 
